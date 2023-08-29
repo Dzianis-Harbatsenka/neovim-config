@@ -1,2 +1,1 @@
 require("dharb")
-print("hello")
