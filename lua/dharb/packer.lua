@@ -10,10 +10,10 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-	use { "catppuccin/nvim", as = "catppuccin", 
-		config = function() 
+	use { "catppuccin/nvim", as = "catppuccin",
+		config = function()
 			vim.cmd "colorscheme catppuccin-mocha"
-		end 
+		end
 	}
 
 	use {
@@ -40,6 +40,9 @@ return require('packer').startup(function(use) -- Packer can manage itself
 			{'hrsh7th/nvim-cmp'},     -- Required
 			{'hrsh7th/cmp-nvim-lsp'}, -- Required
 			{'L3MON4D3/LuaSnip'},     -- Required
+
+			-- Formatting (My choice)
+			{'jose-elias-alvarez/null-ls.nvim'} 	-- Optional
 		}
 	}
 end)
