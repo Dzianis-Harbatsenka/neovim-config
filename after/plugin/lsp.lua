@@ -15,16 +15,40 @@ lsp.format_on_save({
 	}
 })
 
+lsp.ensure_installed({
+	'tsserver',
+	'lua_ls'
+})
+
 lsp.setup()
 
+local util = require("lspconfig.util");
+
 local function tsserver_setup()
+	-- local cmd = { 'typescript-language-server', '--stdio', '--log-level', '4' }
 	local tsserver = require('lspconfig').tsserver
+
 	tsserver.setup({
+		-- cmd = cmd,
+		root_dir = function (fname)
+			return util.root_pattern('.git')(fname)
+		end,
+		init_opions = {
+			hostInfo = 'neovim',
+			-- maxTsServerMemory = 1024,
+		},
 		single_file_support = false,
 	})
 end
 
 tsserver_setup()
+
+local function lua_ls_setup()
+	local lua_ls = require("lspconfig").lua_ls
+	lua_ls.setup({})
+end
+
+lua_ls_setup()
 
 local function cmp_setup()
 	local cmp = require('cmp')
@@ -45,7 +69,7 @@ local function null_ls_setup()
 		sources = {
 			null_ls.builtins.formatting.prettier,
 			null_ls.builtins.formatting.stylua,
-			null_ls.builtins.diagnostics.eslint,
+			-- null_ls.builtins.diagnostics.eslint,
 		}
 	})
 end
