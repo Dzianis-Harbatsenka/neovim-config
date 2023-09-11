@@ -11,16 +11,16 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
 	use { "catppuccin/nvim", as = "catppuccin" }
-	use({ 'rose-pine/neovim', as = 'rose-pine' })
+	use { 'rose-pine/neovim', as = 'rose-pine' }
 
 	use {
 		'nvim-treesitter/nvim-treesitter',
-		run = function()
-			local ts_update = require('nvim-treesitter.install').updated({ with_sync = true })
-			ts_update()
-		end
+		-- run = function()
+			-- local ts_update = require('nvim-treesitter.install').updated({ with_sync = true })
+			-- ts_update()
+		-- end
 	}
-	-- use { 'nvim-treesitter/nvim-treesitter-angular' }
+	use { 'nvim-treesitter/playground' }
 
 	use ('tpope/vim-fugitive')
 	use ('tpope/vim-commentary')
@@ -43,5 +43,4 @@ return require('packer').startup(function(use) -- Packer can manage itself
 			{'jose-elias-alvarez/null-ls.nvim'} 	-- Optional
 		}
 	}
-end
-)
+end)

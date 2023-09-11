@@ -9,6 +9,12 @@ lsp.on_attach(function (_,bufnr)
 	})
 end)
 
+lsp.set_server_config({
+	on_init = function (client)
+		client.server_capabilities.semanticTokensProvider = nil
+	end
+})
+
 lsp.format_on_save({
 	servers = {
 		['null-ls'] = { 'javascritp', 'typescript', 'lua' }
@@ -25,18 +31,12 @@ lsp.setup()
 local util = require("lspconfig.util");
 
 local function tsserver_setup()
-	-- local cmd = { 'typescript-language-server', '--stdio', '--log-level', '4' }
 	local tsserver = require('lspconfig').tsserver
 
 	tsserver.setup({
-		-- cmd = cmd,
 		root_dir = function (fname)
 			return util.root_pattern('.git')(fname)
 		end,
-		init_opions = {
-			hostInfo = 'neovim',
-			-- maxTsServerMemory = 1024,
-		},
 		single_file_support = false,
 	})
 end
