@@ -28,16 +28,20 @@ lsp.ensure_installed({
 
 lsp.setup()
 
+vim.keymap.set('n', '<leader>ca', function ()
+		vim.lsp.buf.code_action()
+	end,
+	{ desc = 'Perform LSP [C]ode [A]ction' }
+)
+
+
 local util = require("lspconfig.util");
 
 local function tsserver_setup()
 	local tsserver = require('lspconfig').tsserver
 
 	tsserver.setup({
-		root_dir = function (fname)
-			return util.root_pattern('.git')(fname)
-		end,
-		single_file_support = false,
+		root_dir = util.find_node_modules_ancestor,
 	})
 end
 
