@@ -17,13 +17,14 @@ lsp.set_server_config({
 
 lsp.format_on_save({
 	servers = {
-		['null-ls'] = { 'javascritp', 'typescript', 'lua' }
+		['null-ls'] = { 'html', 'css', 'scss', 'javascript', 'typescript', 'lua', 'handlebars' }
 	}
 })
 
 lsp.ensure_installed({
 	'tsserver',
-	'lua_ls'
+	'lua_ls',
+	'eslint',
 })
 
 lsp.setup()
@@ -59,7 +60,7 @@ local function cmp_setup()
 
 	cmp.setup({
 		mapping = {
-			['<Tab>'] = cmp.mapping.confirm({ select = true })
+			['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
 		}
 	})
 end
@@ -79,3 +80,10 @@ local function null_ls_setup()
 end
 
 null_ls_setup()
+
+local function eslint_setup()
+	local eslint = require("lspconfig").eslint
+	eslint.setup({})
+end
+
+eslint_setup()

@@ -12,6 +12,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use { 'rose-pine/neovim', as = 'rose-pine' }
+	use { 'rebelot/kanagawa.nvim' }
 
 	use {
 		'nvim-treesitter/nvim-treesitter',
