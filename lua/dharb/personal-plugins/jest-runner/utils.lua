@@ -10,5 +10,3 @@ utils.check_if_spec_file = function(file)
 end
 
 return utils
-
-

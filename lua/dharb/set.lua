@@ -3,7 +3,6 @@ vim.g.netrw_rmdir_cmd = "rm -r" --TODO: doesn't work
 
 vim.opt.relativenumber = true
 
-
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
@@ -31,14 +30,14 @@ vim.opt.splitbelow = true
 
 -- WLS clipboard
 vim.g.clipboard = {
-	name = 'WslClipboard',
+	name = "WslClipboard",
 	copy = {
-		['+'] = 'clip.exe',
-		['*'] = 'clip.exe',
+		["+"] = "clip.exe",
+		["*"] = "clip.exe",
 	},
 	paste = {
-		['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-		['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+		["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+		["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
 	},
 	cache_enabled = 0,
 }

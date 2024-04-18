@@ -22,7 +22,7 @@ local function change_wd(path)
 end
 
 local function form_cmd(current_file)
-	local cmd = {"npx jest", current_file, "--silent", "--watch"}
+	local cmd = { "npx jest", current_file, "--silent", "--watch" }
 	return table.concat(cmd, " ")
 end
 
@@ -32,7 +32,9 @@ function Jest_runner()
 	local current_file = get_current_file_path()
 	local current_wd = get_current_file_wd()
 
-	if not utils.check_if_spec_file(current_file) then error(ERROR_PREFIX .. "Not a .spec file") end
+	if not utils.check_if_spec_file(current_file) then
+		error(ERROR_PREFIX .. "Not a .spec file")
+	end
 
 	local cmd = form_cmd(current_file)
 	create_window()
@@ -40,4 +42,4 @@ function Jest_runner()
 	open_termilal(cmd)
 end
 
-vim.api.nvim_create_user_command("Jest", Jest_runner, { nargs = 0 });
+vim.api.nvim_create_user_command("Jest", Jest_runner, { nargs = 0 })

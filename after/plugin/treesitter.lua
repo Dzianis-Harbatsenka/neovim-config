@@ -1,17 +1,17 @@
-require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = {
+require("nvim-treesitter.configs").setup({
+	-- A list of parser names, or "all" (the five listed parsers should always be installed)
+	ensure_installed = {
 		"javascript",
 		"typescript",
 		"angular",
 		"glimmer",
 		"css",
-		"scss" ,
+		"scss",
 		"c",
 		"lua",
 		"vim",
 		"vimdoc",
-		"query"
+		"query",
 	},
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
@@ -28,4 +28,4 @@ require'nvim-treesitter.configs'.setup {
 
 	intent = { enabled = true },
 	incremental_selection = { enabled = true },
-}
+})

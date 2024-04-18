@@ -1,14 +1,14 @@
-require('rose-pine').setup({
+require("rose-pine").setup({
 	styles = {
 		italic = false,
 		bold = true,
 	},
 	highlight_groups = {
-		ColorColumn = { bg = 'rose' },
+		ColorColumn = { bg = "rose" },
 
 		-- Blend colours against the "base" background
-		CursorLine = { bg = 'foam', blend = 10 },
-		StatusLine = { fg = 'love', bg = 'love', blend = 10 },
+		CursorLine = { bg = "foam", blend = 10 },
+		StatusLine = { fg = "love", bg = "love", blend = 10 },
 	},
 	headings = "subtle",
 	enable = {
@@ -16,12 +16,11 @@ require('rose-pine').setup({
 	},
 })
 
-
-require('kanagawa').setup({
+require("kanagawa").setup({
 	keywordStyle = { italic = false },
 	commentStyle = { italic = false },
 })
 
 -- vim.cmd('colorscheme rose-pine');
 -- vim.cmd('colorscheme dracula');
-vim.cmd('colorscheme kanagawa-dragon');
+vim.cmd("colorscheme kanagawa-dragon")
